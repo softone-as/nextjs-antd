@@ -19,7 +19,7 @@ This is a modified [Next.js](https://nextjs.org/) project bootstrapped with [`cr
 ```bash
 # Preparing NVM ENV
 nvm install 20.11.0
-nvm alias [project-name]
+nvm alias [project-name] 20.11.0
 nvm use [project-name]
 
 # Preparing pnpm as package manager
