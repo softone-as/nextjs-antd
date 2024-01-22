@@ -1,17 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a modified [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and [`Ant Design v5`](https://ant.design/)
 
-## Getting Started
+## Requirement
 
-First, run the development server:
+- NodeJS LTS 20.11.0
+- PNPM 8.14.1
+- NVM (Node Version Manager) - To easily switch between node version
+
+## Tech Stack Package
+
+- NextJS v14.0.4
+- React v18
+- React-dom v18
+- Typescript v5.3.3
+- Ant Design v5.13.1
+
+## Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Preparing NVM ENV
+nvm install 20.11.0
+nvm alias [project-name]
+nvm use [project-name]
+
+# Preparing pnpm as package manager
+npm install -g pnpm@8.14.1
+
+# Installing packages
+pnpm install --frozen-lockfile # To make sure all codebase have same package version based on lock file
+
+# Starting app in development mode
+pnpm run dev
+
+# Starting app in production mode
+pnpm run build
+pnpm run start
+```
+
+## Quick Start Production with Docker
+
+```bash
+docker compose up --build
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
