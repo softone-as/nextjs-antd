@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import AntConfigProvider from "@/components/providers/theme";
+import { Layout } from "antd";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,8 @@ export const metadata: Metadata = {
     { rel: "icon", url: "icons/icon-192x192.png" },
   ],
 };
+
+const { Header, Content, Sider } = Layout;
 
 export default function RootLayout({
   children,
