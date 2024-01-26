@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import AntConfigProvider from "@/components/providers/theme";
 import { Layout } from "antd";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -45,7 +46,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AntConfigProvider>{children}</AntConfigProvider>
+        <SessionProvider>
+          <AntConfigProvider>{children}</AntConfigProvider>
+        </SessionProvider>
       </body>
     </html>
   );

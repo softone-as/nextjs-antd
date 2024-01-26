@@ -3,7 +3,7 @@
 import { Button } from "antd";
 import { signIn } from "next-auth/react";
 
-const IndexPage = () => {
+const LoginPage = () => {
   return (
     <div>
       <Button type="primary" onClick={() => signIn("google")}>
@@ -13,4 +13,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default LoginPage;
