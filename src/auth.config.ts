@@ -12,7 +12,6 @@ const guestOnlyPageConfig = {
 };
 
 export const authConfig = {
-  secret: process.env.SECRET,
   pages: {
     signIn: loginPageRoute,
   },
