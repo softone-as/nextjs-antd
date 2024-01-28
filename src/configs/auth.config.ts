@@ -2,11 +2,11 @@ import Google from "next-auth/providers/google";
 import type { NextAuthConfig } from "next-auth";
 import { envServer } from "./env-server.config";
 
-const loginPageRoute = "/login";
+const loginPageRoute = "/auth/sign-in";
 
 const guestOnlyPageConfig = {
   // list of guest only routes
-  routes: [loginPageRoute, "/sign-out"],
+  routes: [loginPageRoute, "/auth/sign-out"],
   // if user try to access guest only routes when authenticated,
   // redirect to this page
   fallback: "/dashboard",
@@ -23,8 +23,10 @@ export const authConfig = {
       // if logged in allow
       if (isLoggedIn) {
         // prevent on login page
-        const fallback = guestOnlyPageConfig.routes.some((route) =>
-          nextUrl.pathname.startsWith(route),
+        const fallback = guestOnlyPageConfig.routes.some(
+          (route) =>
+            nextUrl.pathname.startsWith(route) &&
+            nextUrl.pathname !== guestOnlyPageConfig.fallback,
         );
 
         if (fallback)
