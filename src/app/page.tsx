@@ -1,16 +1,7 @@
-"use client";
-
-import { Button } from "antd";
-import { signIn } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 const IndexPage = () => {
-  return (
-    <div>
-      <Button type="primary" onClick={() => signIn("google")}>
-        Sign in
-      </Button>
-    </div>
-  );
+  return redirect("/dashboard");
 };
 
 export default IndexPage;
