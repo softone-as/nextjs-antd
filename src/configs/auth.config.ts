@@ -1,5 +1,6 @@
 import Google from "next-auth/providers/google";
 import type { NextAuthConfig } from "next-auth";
+import { envServer } from "./env-server.config";
 
 const loginPageRoute = "/login";
 
@@ -38,8 +39,8 @@ export const authConfig = {
   },
   providers: [
     Google({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: envServer.GOOGLE_CLIENT_ID,
+      clientSecret: envServer.GOOGLE_CLIENT_SECRET,
     }),
   ],
 } satisfies NextAuthConfig;
