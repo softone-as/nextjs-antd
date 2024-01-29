@@ -1,5 +1,6 @@
 "use client";
 
+import MainLayout from "@/components/layouts/main";
 import { createZodSync } from "@/utils/zod-sync";
 import { Button, Form, Input } from "antd";
 import { z } from "zod";
@@ -23,65 +24,67 @@ const FormPage = () => {
   const [form] = Form.useForm();
 
   return (
-    <Form form={form} onFinish={console.log}>
-      <Form.Item name="name" label="name" rules={[zodSync]} required>
-        <Input />
-      </Form.Item>
-      <Form.Item name="email" label="email" rules={[zodSync]} required>
-        <Input />
-      </Form.Item>
-      <Form.Item name="phone" label="No HP" rules={[zodSync]}>
-        <Input />
-      </Form.Item>
-      <Form.Item name="address" label="address" rules={[zodSync]}>
-        <Input.TextArea />
-      </Form.Item>
-      <div>
-        <Form.List name="roles">
-          {(fields, { add }) => (
-            <>
-              {fields.map((field) => (
-                <Form.Item
-                  key={field.key}
-                  name={[field.name, "name"]}
-                  label="name"
-                  rules={[zodSync]}
-                  required
-                >
-                  <Input />
-                </Form.Item>
-              ))}
-              <Button onClick={() => add({})}>Add role</Button>
-            </>
-          )}
-        </Form.List>
-      </div>
+    <MainLayout>
+      <Form form={form} onFinish={console.log}>
+        <Form.Item name="name" label="name" rules={[zodSync]} required>
+          <Input />
+        </Form.Item>
+        <Form.Item name="email" label="email" rules={[zodSync]} required>
+          <Input />
+        </Form.Item>
+        <Form.Item name="phone" label="No HP" rules={[zodSync]}>
+          <Input />
+        </Form.Item>
+        <Form.Item name="address" label="address" rules={[zodSync]}>
+          <Input.TextArea />
+        </Form.Item>
+        <div>
+          <Form.List name="roles">
+            {(fields, { add }) => (
+              <>
+                {fields.map((field) => (
+                  <Form.Item
+                    key={field.key}
+                    name={[field.name, "name"]}
+                    label="name"
+                    rules={[zodSync]}
+                    required
+                  >
+                    <Input />
+                  </Form.Item>
+                ))}
+                <Button onClick={() => add({})}>Add role</Button>
+              </>
+            )}
+          </Form.List>
+        </div>
 
-      <div>
-        <Form.List name="links">
-          {(fields, { add }) => (
-            <>
-              {fields.map((field) => (
-                <Form.Item
-                  key={field.key}
-                  name={field.name}
-                  label="url"
-                  rules={[zodSync]}
-                  required
-                >
-                  <Input />
-                </Form.Item>
-              ))}
-              <Button onClick={() => add("")}>Add link</Button>
-            </>
-          )}
-        </Form.List>
-      </div>
+        <div>
+          <Form.List name="links">
+            {(fields, { add }) => (
+              <>
+                {fields.map((field) => (
+                  <Form.Item
+                    key={field.key}
+                    name={field.name}
+                    label="url"
+                    rules={[zodSync]}
+                    required
+                  >
+                    <Input />
+                  </Form.Item>
+                ))}
+                <Button onClick={() => add("")}>Add link</Button>
+              </>
+            )}
+          </Form.List>
+        </div>
 
-      <Button htmlType="submit" style={{ top: 24 }}>
-        Submit
-      </Button>
-    </Form>
+        <Button htmlType="submit" style={{ top: 24 }}>
+          Submit
+        </Button>
+      </Form>
+    </MainLayout>
   );
 };
 

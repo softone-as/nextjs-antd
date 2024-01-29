@@ -1,5 +1,7 @@
 "use client";
 
+// WIP: this is example layout from ant design, please adjust to your needs
+
 import React from "react";
 import {
   LaptopOutlined,
