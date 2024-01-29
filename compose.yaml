@@ -1,3 +1,4 @@
+version: "3"
 # Comments are provided throughout this file to help you get started.
 # If you need more help, visit the Docker compose reference guide at
 # https://docs.docker.com/go/compose-spec-reference/
@@ -8,14 +9,24 @@
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
 services:
-  server:
+  next-app:
+    container_name: next-app
     build:
       context: .
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL}
     environment:
       NODE_ENV: production
     ports:
       - 3000:3000
+    networks:
+      - next_network
 
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  next_network:
+    external: true
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
 # start the database before your application. The `db-data` volume persists the
@@ -48,4 +59,3 @@ services:
 # secrets:
 #   db-password:
 #     file: db/password.txt
-

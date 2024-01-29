@@ -108,8 +108,6 @@ const DataTable = <
     handleOnChange(newState);
   };
 
-  console.log(source);
-
   return (
     <>
       <Space.Compact direction="vertical" style={tableLayout}>

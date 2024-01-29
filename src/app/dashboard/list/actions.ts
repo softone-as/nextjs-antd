@@ -12,7 +12,7 @@ export type ResponseData = {
 export const listDummy = async (): Promise<ResponseData> => {
   const endpoint = new URL(
     "/api/dummy",
-    process.env.NEXT_PUBLIC_BASE_URL,
+    process.env.NEXT_PUBLIC_API_BASE_URL,
   ).toString();
 
   const res = await fetch(endpoint);
