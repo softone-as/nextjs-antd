@@ -9,8 +9,8 @@ export const envServerSchemaObj = {
   AUTH_URL_INTERNAL: z.string().url().optional(),
   AUTH_SECRET: z.string().trim().min(1),
 
-  GOOGLE_CLIENT_ID: z.string().trim().min(1),
-  GOOGLE_CLIENT_SECRET: z.string().trim().min(1),
+  AUTH_GOOGLE_ID: z.string().trim().min(1),
+  AUTH_GOOGLE_SECRET: z.string().trim().min(1),
 
   NODE_ENV: z
     .enum(["development", "production", "test"])
@@ -22,8 +22,8 @@ const envServerCollectionObj = {
   AUTH_URL_INTERNAL: process.env.AUTH_URL_INTERNAL,
   AUTH_SECRET: process.env.AUTH_SECRET,
 
-  GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
-  GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+  AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
+  AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
 
   NODE_ENV: process.env.NODE_ENV,
 };

@@ -39,10 +39,5 @@ export const authConfig = {
       else return false;
     },
   },
-  providers: [
-    Google({
-      clientId: envServer.GOOGLE_CLIENT_ID,
-      clientSecret: envServer.GOOGLE_CLIENT_SECRET,
-    }),
-  ],
+  providers: [Google],
 } satisfies NextAuthConfig;
