@@ -3,9 +3,9 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import AntConfigProvider from "@/components/providers/theme";
-import { Layout } from "antd";
 
 import { SessionProvider } from "next-auth/react";
+import SWRConfigProvider from "@/components/providers/swr";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,8 +37,6 @@ export const metadata: Metadata = {
   ],
 };
 
-const { Header, Content, Sider } = Layout;
-
 export default function RootLayout({
   children,
 }: {
@@ -48,7 +46,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider>
-          <AntConfigProvider>{children}</AntConfigProvider>
+          <AntConfigProvider>
+            <SWRConfigProvider>{children}</SWRConfigProvider>
+          </AntConfigProvider>
         </SessionProvider>
       </body>
     </html>

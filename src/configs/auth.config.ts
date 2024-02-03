@@ -1,6 +1,5 @@
 import Google from "next-auth/providers/google";
 import type { NextAuthConfig } from "next-auth";
-import { envServer } from "./env-server.config";
 
 const loginPageRoute = "/auth/sign-in";
 
@@ -15,6 +14,9 @@ const guestOnlyPageConfig = {
 export const authConfig = {
   pages: {
     signIn: loginPageRoute,
+  },
+  session: {
+    strategy: "jwt",
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {

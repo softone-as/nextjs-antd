@@ -5,7 +5,7 @@ export async function GET() {
       { id: 2, name: "Jane Doe" },
       { id: 3, name: "John Smith" },
     ],
-    pagination: {
+    meta: {
       current: 1,
       pageSize: 10,
       total: 1,

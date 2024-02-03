@@ -1,7 +1,9 @@
+"use client";
+
 import DataTable from "@/components/datatable";
 import MainLayout from "@/components/layouts/main";
-import { getQueryServer } from "@/utils/fetcher";
 import { listDummy } from "./actions";
+import useSWR from "swr";
 
 const columns = [
   {
@@ -18,8 +20,8 @@ const columns = [
   },
 ];
 
-const ListPage = async () => {
-  const { data: dummy } = await getQueryServer(() => listDummy());
+const ListPage = () => {
+  const { data: dummy } = useSWR(["/api/dummy"], () => listDummy());
 
   return (
     <MainLayout>
