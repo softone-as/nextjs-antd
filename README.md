@@ -23,7 +23,8 @@ nvm alias [project-name] 20.11.0
 nvm use [project-name]
 
 # Preparing pnpm as package manager
-npm install -g pnpm@8.14.1
+npm install -g corepack
+corepack enable
 
 # Installing packages
 pnpm install --frozen-lockfile # To make sure all codebase have same package version based on lock file
@@ -62,7 +63,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
 
 ## Lighthouse Benchmark
 
