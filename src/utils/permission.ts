@@ -23,27 +23,21 @@ const isPermissionWithChildren = (
 export const filterPermission = <
   T extends PermissionWithChildren | PermissionWithoutChildren,
 >(
-  userPermissions: T[],
-  hasPermissionCB: (permission: T) => boolean,
+  menus: T[],
+  hasPermissionCB: (menu: T) => boolean,
 ): T[] => {
-  return userPermissions.reduce((all, permission) => {
+  return menus.reduce((all, menu) => {
     // Check permission type and length
-    if (
-      isPermissionWithChildren(permission) &&
-      permission.children.length > 0
-    ) {
-      const children = filterPermission(
-        permission.children as T[],
-        hasPermissionCB,
-      );
+    if (isPermissionWithChildren(menu) && menu.children.length > 0) {
+      const children = filterPermission(menu.children as T[], hasPermissionCB);
       if (children.length > 0) {
-        const currentPermission = permission;
+        const currentPermission = menu;
         currentPermission.children = children;
         all.push(currentPermission);
       }
       // check permission through callback
-    } else if (hasPermissionCB(permission)) {
-      all.push(permission);
+    } else if (hasPermissionCB(menu)) {
+      all.push(menu);
     }
     return all;
   }, [] as T[]);

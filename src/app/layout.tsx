@@ -4,8 +4,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import AntConfigProvider from "@/components/providers/theme";
 
-import { SessionProvider } from "next-auth/react";
 import SWRConfigProvider from "@/components/providers/swr";
+import SessionProvider from "@/components/providers/next-auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
