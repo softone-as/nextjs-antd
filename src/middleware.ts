@@ -1,9 +1,23 @@
-import NextAuth from "next-auth";
-import { authConfig } from "./configs/auth.config";
+import { withAuth } from "next-auth/middleware";
+import { NextResponse } from "next/server";
 
-export default NextAuth(authConfig).auth;
+const guestOnlyPage = ["/auth/sign-in", "/auth/sign-up"];
+
+export default withAuth(
+  function (req) {
+    return;
+  },
+  {
+    // Callback for checking authorization token
+    callbacks: {
+      authorized: ({ token }) => {
+        return token;
+      },
+    },
+  },
+);
 
 export const config = {
-  // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  // https://next-auth.js.org/configuration/nextjs#middleware
+  matcher: ["/dashboard"],
 };
