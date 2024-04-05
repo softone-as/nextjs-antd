@@ -4,7 +4,7 @@ const path = require("path");
 const nextConfig = {
   swcMinify: true,
   eslint: {
-    dirs: ["app"],
+    dirs: ["src"],
   },
   output: "standalone",
   webpack: (config, { isServer }) => {
