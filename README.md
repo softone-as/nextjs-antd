@@ -2,8 +2,8 @@ This is a modified [Next.js](https://nextjs.org/) project bootstrapped with [`cr
 
 ## Requirement
 
-- NodeJS LTS 20.11.0
-- PNPM 8.14.1
+- NodeJS LTS 20.12.1
+- PNPM 8.15.6
 - NVM (Node Version Manager) - To easily switch between node version
 
 ## Tech Stack Package
