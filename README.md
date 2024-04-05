@@ -8,18 +8,18 @@ This is a modified [Next.js](https://nextjs.org/) project bootstrapped with [`cr
 
 ## Tech Stack Package
 
-- NextJS v14.0.4
+- NextJS v14.1.4
 - React v18
 - React-dom v18
-- Typescript v5.3.3
-- Ant Design v5.13.1
+- Typescript v5.4.4
+- Ant Design v5.16.0
 
 ## Quick Start
 
 ```bash
 # Preparing NVM ENV
-nvm install 20.11.0
-nvm alias [project-name] 20.11.0
+nvm install 20.12.1
+nvm alias [project-name] 20.12.1
 nvm use [project-name]
 
 # Preparing pnpm as package manager
@@ -27,7 +27,7 @@ npm install -g corepack
 corepack enable
 
 # Installing packages
-pnpm install --frozen-lockfile # To make sure all codebase have same package version based on lock file
+pnpm install
 
 # Starting app in development mode
 pnpm run dev
