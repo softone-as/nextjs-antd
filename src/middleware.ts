@@ -5,13 +5,13 @@ const guestOnlyPage = ["/auth/sign-in", "/auth/sign-up"];
 
 export default withAuth(
   function (req) {
-    return;
+    return NextResponse.next();
   },
   {
     // Callback for checking authorization token
     callbacks: {
-      authorized: ({ token }) => {
-        return token;
+      authorized: async ({ token }) => {
+        return !!token;
       },
     },
   },
