@@ -4,6 +4,7 @@ import DataTable from "@/components/datatable";
 import MainLayout from "@/components/layouts/main";
 import { listDummy } from "./actions";
 import useSWR from "swr";
+import Link from "next/link";
 
 const columns = [
   {
@@ -11,6 +12,7 @@ const columns = [
     dataIndex: "id",
     key: "id",
     sorter: true,
+    render: (id: string) => <Link href={`list/${id}`}>{id}</Link>,
   },
   {
     title: "Name",
@@ -23,11 +25,7 @@ const columns = [
 const ListPage = () => {
   const { data: dummy } = useSWR(["/api/dummy"], () => listDummy());
 
-  return (
-    <MainLayout>
-      <DataTable columns={columns} source={dummy} />
-    </MainLayout>
-  );
+  return <DataTable columns={columns} source={dummy} />;
 };
 
 export default ListPage;
